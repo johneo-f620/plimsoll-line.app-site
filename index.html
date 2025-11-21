@@ -8,134 +8,249 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        moss: {
+                            50: '#f4f7f2',
+                            100: '#e6efe0',
+                            200: '#cedfc3',
+                            300: '#abc79e',
+                            400: '#83a873',
+                            500: '#628b51',
+                            600: '#4c6f3d',
+                            700: '#3d5832',
+                            800: '#33472b',
+                            900: '#2b3b25',
+                            950: '#162012',
+                        },
+                        cream: '#FDFBF7',
+                        paper: '#F7F9F7',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'calm-gradient': 'linear-gradient(180deg, #F7F9F7 0%, #E8EBE5 100%)',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F7F9F7;
-            /* A very light, calming off-white */
-            color: #3d4a40;
-            /* Moss green text */
+            background-color: #FDFBF7;
+            color: #2b3b25;
         }
 
-        .bg-moss-green {
-            background-color: #556B2F;
-            /* A solid moss green */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        .text-moss-green {
-            color: #3d4a40;
+        .delay-100 {
+            animation-delay: 0.1s;
         }
 
-        .border-moss-green {
-            border-color: #556B2F;
+        .delay-200 {
+            animation-delay: 0.2s;
         }
 
-        .calm-gradient {
-            background: linear-gradient(180deg, #F7F9F7 0%, #E8EBE5 100%);
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
-<body class="antialiased">
+<body class="antialiased selection:bg-moss-200 selection:text-moss-900 flex flex-col min-h-screen">
 
     <!-- Header -->
-    <header class="p-6 md:p-8">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="Plimsoll Line Basic.png" alt="Plimsoll Line Logo" class="h-12 md:h-16">
-                <h1 class="text-2xl md:text-3xl font-bold text-moss-green ml-4">Plimsoll Line</h1>
+    <header
+        class="fixed w-full top-0 z-50 bg-cream/80 backdrop-blur-md border-b border-moss-100 transition-all duration-300">
+        <div class="container mx-auto px-6 md:px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3 group">
+                <img src="Plimsoll Line Basic.png" alt="Plimsoll Line Logo"
+                    class="h-10 w-auto transition-transform group-hover:scale-105 duration-300">
+                <h1 class="text-xl font-serif font-semibold text-moss-900 tracking-tight">Plimsoll Line</h1>
             </div>
-            <a href="https://apps.apple.com/us/app/plimsoll-line/id6751366557?itscg=30200&itsct=apps_box_badge&mttnsubad=6751366557"
-                style="display: inline-block;">
-                <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1763683200"
-                    alt="Download on the App Store"
-                    style="width: 245px; height: 82px; vertical-align: middle; object-fit: contain;" />
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#features"
+                    class="text-sm font-medium text-moss-700 hover:text-moss-900 transition-colors">Features</a>
+                <a href="#download"
+                    class="text-sm font-medium text-moss-700 hover:text-moss-900 transition-colors">Download</a>
+            </nav>
+            <a href="https://apps.apple.com/us/app/plimsoll-line/id6751366557"
+                class="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-moss-600 rounded-full hover:bg-moss-700 transition-all shadow-sm hover:shadow-md focus:ring-4 focus:ring-moss-200">
+                Get the App
             </a>
-
         </div>
     </header>
 
     <!-- Hero Section -->
-    <main class="container mx-auto px-6 md:px-8 py-16 md:py-24 text-center">
-        <h2 class="text-4xl md:text-6xl font-bold leading-tight max-w-3xl mx-auto text-moss-green">
-            Anxious people have things to do, too.
-        </h2>
-        <p class="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-moss-green/80">
-            Plimsoll Line allows you to surface what's causing your stress and what's giving you joy. Visualize your
-            emotional capacity, manage your tasks, and find your calm without the pressure of a traditional to-do apps.
-        </p>
-        <div class="mt-10">
-            <a href="https://apps.apple.com/us/app/plimsoll-line/id6751366557?itscg=30200&itsct=apps_box_badge&mttnsubad=6751366557"
-                style="display: inline-block;">
-                <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1763683200"
-                    alt="Download on the App Store"
-                    style="width: 245px; height: 82px; vertical-align: middle; object-fit: contain;" />
-            </a>
+    <main class="flex-grow pt-32 pb-16 md:pt-40 md:pb-24">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <div
+                        class="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider text-moss-800 uppercase bg-moss-100 rounded-full fade-in-up">
+                        Mindful Task Management
+                    </div>
+                    <h2
+                        class="text-4xl md:text-6xl lg:text-7xl font-serif font-semibold leading-tight text-moss-900 mb-6 fade-in-up delay-100">
+                        Anxious people have things to do, too.
+                    </h2>
+                    <p
+                        class="text-lg md:text-xl text-moss-700 leading-relaxed mb-10 max-w-xl mx-auto md:mx-0 fade-in-up delay-200">
+                        Visualize your emotional capacity, manage your tasks, and find your calm without the pressure of
+                        traditional to-do apps.
+                    </p>
+                    <div
+                        class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 fade-in-up delay-300">
+                        <a href="https://apps.apple.com/us/app/plimsoll-line/id6751366557?itscg=30200&itsct=apps_box_badge&mttnsubad=6751366557"
+                            class="inline-block transition-transform hover:scale-105 active:scale-95">
+                            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1763683200"
+                                alt="Download on the App Store" class="h-[56px] w-auto object-contain" />
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative fade-in-up delay-300">
+                    <div class="absolute inset-0 bg-moss-200 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+                    <img src="Product-screenshot1.png" alt="Plimsoll Line app interface"
+                        class="relative z-10 w-full max-w-sm mx-auto rounded-[2.5rem] shadow-2xl border-8 border-white ring-1 ring-black/5 transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- Features Section -->
-    <section class="py-16 md:py-24 calm-gradient">
+    <section id="features" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-moss-100 to-transparent">
+        </div>
         <div class="container mx-auto px-6 md:px-8">
-            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h3 class="text-3xl md:text-4xl font-serif font-semibold text-moss-900 mb-4">Find Your Balance</h3>
+                <p class="text-lg text-moss-600">Designed to help you understand your limits and manage your energy, not
+                    just your time.</p>
+            </div>
 
-                <!-- Feature 1: Visualize Your Capacity -->
-                <div class="md:order-2">
-                    <h3 class="text-3xl font-bold text-moss-green">Visualize Your Capacity</h3>
-                    <p class="mt-4 text-lg text-moss-green/80">
-                        The "water line" give you where you are with your emotional limit. The higher the water line,
-                        the more you need to give attention to your emotional well-being. Red tasks give you anxiety,
-                        the blue ones offset the anxiety with joy. The water line rises or falls based based on the sum
-                        of anxieties and joys, giving you the big picture of when and how you can find emotional
-                        balance.
-                    </p>
-                </div>
-                <div class="md:order-1 flex justify-center">
-                    <img src="Product-screenshot1.png"
-                        alt="Plimsoll Line app screenshot showing tasks above and below the water line."
-                        class="rounded-3xl shadow-xl max-w-xs w-full">
-                </div>
-
-                <!-- Feature 2: Seamless Integration -->
-                <div class="mt-16 md:mt-0">
-                    <h3 class="text-3xl font-bold text-moss-green">Works With Your Life</h3>
-                    <p class="mt-4 text-lg text-moss-green/80">
-                        Plimsoll Line seamlessly syncs with Apple Reminders. Add tasks in Reminders, and they'll appear
-                        in the app, ready for you to prioritize. No need to change your workflow.
-                    </p>
-                </div>
-                <div class="mt-8 md:mt-0 flex justify-center">
-                    <video autoplay loop muted playsinline class="rounded-3xl shadow-xl max-w-xs w-full"
+            <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
+                <div class="order-2 md:order-1 relative">
+                    <div class="absolute -inset-4 bg-moss-50 rounded-full blur-2xl opacity-50"></div>
+                    <video autoplay loop muted playsinline
+                        class="relative rounded-[2rem] shadow-xl w-full max-w-xs mx-auto border-4 border-white"
                         poster="Product-screenshot1.png">
                         <source src="Product-screen-recording1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="bg-moss-50 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-2xl">🌊
+                    </div>
+                    <h4 class="text-2xl md:text-3xl font-bold text-moss-900 mb-4">Visualize Your Capacity</h4>
+                    <p class="text-lg text-moss-700 leading-relaxed mb-6">
+                        The "water line" shows where you are with your emotional limit. The higher the water line,
+                        the more you need to prioritize self-care.
+                    </p>
+                    <ul class="space-y-3 text-moss-800">
+                        <li class="flex items-start gap-3">
+                            <span class="text-moss-500 mt-1">●</span>
+                            <span><strong class="text-red-700/80">Red tasks</strong> represent anxiety and drain your
+                                energy.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-moss-500 mt-1">●</span>
+                            <span><strong class="text-blue-600/80">Blue tasks</strong> bring joy and restore your
+                                balance.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="bg-moss-50 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-2xl">🔄
+                    </div>
+                    <h4 class="text-2xl md:text-3xl font-bold text-moss-900 mb-4">Works With Your Life</h4>
+                    <p class="text-lg text-moss-700 leading-relaxed">
+                        Plimsoll Line seamlessly syncs with Apple Reminders. Add tasks in Reminders, and they'll appear
+                        in the app, ready for you to prioritize. No need to change your workflow or migrate data.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div
+                        class="relative bg-moss-900 rounded-3xl p-8 shadow-2xl max-w-sm w-full text-white overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-moss-700 rounded-full opacity-50 blur-2xl">
+                        </div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="font-medium">Syncs with Reminders</div>
+                            </div>
+                            <div class="space-y-3 opacity-90">
+                                <div class="h-2 bg-white/20 rounded w-3/4"></div>
+                                <div class="h-2 bg-white/20 rounded w-1/2"></div>
+                                <div class="h-2 bg-white/20 rounded w-5/6"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="py-16 md:py-24 text-center">
-        <div class="container mx-auto px-6 md:px-8">
-            <h3 class="text-3xl md:text-4xl font-bold text-moss-green max-w-2xl mx-auto">Ready to find your balance?
-            </h3>
-            <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-moss-green/80">
+    <section id="download" class="py-24 bg-moss-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
+        </div>
+        <div class="container mx-auto px-6 md:px-8 text-center relative z-10">
+            <h3 class="text-3xl md:text-5xl font-serif font-semibold mb-6">Ready to find your balance?</h3>
+            <p class="text-lg md:text-xl text-moss-100 max-w-2xl mx-auto mb-10">
                 Download Plimsoll Line today and start managing your to-dos with less anxiety.
             </p>
-            <!--
-            <a href="#" class="bg-moss-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity inline-block mt-8">
-                Download for iOS
+            <a href="https://apps.apple.com/us/app/plimsoll-line/id6751366557?itscg=30200&itsct=apps_box_badge&mttnsubad=6751366557"
+                class="inline-block transition-transform hover:scale-105 active:scale-95">
+                <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1763683200"
+                    alt="Download on the App Store"
+                    class="h-[60px] w-auto object-contain border border-white/20 rounded-lg" />
             </a>
--->
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-8 border-t border-moss-green/10">
+    <footer class="bg-white border-t border-moss-100 py-12">
         <div class="container mx-auto px-6 md:px-8">
-            <p class="text-moss-green/60">&copy; 2025 Factory 620 LLC. All rights reserved.</p>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="Plimsoll Line Basic.png" alt="Logo" class="h-8 w-auto opacity-80">
+                    <span class="text-moss-900 font-medium">Plimsoll Line</span>
+                </div>
+                <div class="flex items-center gap-6 text-sm text-moss-600">
+                    <a href="privacy.html" class="hover:text-moss-900 transition-colors">Privacy Policy</a>
+                    <a href="mailto:info@factory620.com" class="hover:text-moss-900 transition-colors">Contact</a>
+                </div>
+                <p class="text-sm text-moss-400">&copy; 2025 Factory 620 LLC.</p>
+            </div>
         </div>
     </footer>
 
